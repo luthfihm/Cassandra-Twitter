@@ -14,12 +14,6 @@ public class Timeline {
         this.tweet = null;
     }
 
-    public Timeline(String username, String time, String tweet) {
-        this.username = username;
-        this.username = username;
-        this.username = username;
-    }
-
     public String getUsername() {
         return username;
     }

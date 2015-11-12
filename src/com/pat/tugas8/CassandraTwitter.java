@@ -5,9 +5,7 @@ import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by luthfi on 11/12/2015.
@@ -53,7 +51,7 @@ public class CassandraTwitter {
     }
 
     public void followFriend(User follower, User friend) {
-        session.execute("INSERT INTO followers (username, friend, since) VALUES ('"+friend.getUsername()+"', '"+follower.getPassword()+"', dateof(now()))");
+        session.execute("INSERT INTO followers (username, follower, since) VALUES ('"+friend.getUsername()+"', '"+follower.getPassword()+"', dateof(now()))");
         session.execute("INSERT INTO friends (username, friend, since) VALUES ('"+follower.getUsername()+"', '"+friend.getPassword()+"', dateof(now()))");
     }
 
@@ -78,7 +76,7 @@ public class CassandraTwitter {
     }
 
     public Tweet getTweet(UUID tweet_id) {
-        ResultSet result = session.execute("SELECT * from tweets WHERE username="+tweet_id.toString());
+        ResultSet result = session.execute("SELECT * from tweets WHERE tweet_id="+tweet_id.toString());
         Tweet tweet = null;
         for (Row row : result){
             tweet = new Tweet();
@@ -91,12 +89,12 @@ public class CassandraTwitter {
 
     public List<Tweet> getTweets(String username) {
         List<Tweet> tweets = new ArrayList<Tweet>();
-        ResultSet result = session.execute("SELECT * from tweets WHERE username='"+username+"'");
+        ResultSet result = session.execute("SELECT * from userline WHERE username='"+username+"'");
         for (Row row : result){
-            Tweet tweet = new Tweet();
-            tweet.setTweet_id(row.getUUID("tweet_id"));
-            tweet.setUsername(row.getString("username"));
-            tweet.setBody(row.getString("body"));
+            Tweet tweet = getTweet(row.getUUID("tweet_id"));
+//            tweet.setTweet_id(row.getUUID("tweet_id"));
+//            tweet.setUsername(row.getString("username"));
+//            tweet.setBody(row.getString("body"));
             tweets.add(tweet);
         }
         return tweets;
@@ -105,10 +103,11 @@ public class CassandraTwitter {
     public List<Timeline> getUserTimeline(String username) {
         List<Timeline> timelineList = new ArrayList<Timeline>();
         ResultSet result = session.execute("SELECT * from timeline WHERE username='"+username+"'");
+
         for (Row row : result) {
             Timeline timeline = new Timeline();
             timeline.setUsername(username);
-            timeline.setTime(row.getString("time"));
+            timeline.setTime(new Date((row.getUUID("time").timestamp() / 10000) -12219292800000l).toString());
             timeline.setTweet(this.getTweet(row.getUUID("tweet_id")));
             timelineList.add(timeline);
         }

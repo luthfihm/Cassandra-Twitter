@@ -8,6 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.datastax.cassandra:cassandra-driver-core:2.1.9" level="project" />
-    <orderEntry type="library" name="com.datastax.cassandra:cassandra-driver-mapping:2.1.9" level="project" />
+    <orderEntry type="library" name="com.datastax.cassandra:cassandra-driver-core:2.1.6" level="project" />
+    <orderEntry type="library" name="com.datastax.cassandra:cassandra-driver-mapping:2.1.6" level="project" />
   </component>
 </module>
