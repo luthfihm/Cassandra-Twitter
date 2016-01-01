@@ -48,11 +48,11 @@ public class Main {
         //Show welcome message to user
         System.out.println("Welcome to Cassandra Tweeets");
         System.out.println("Command list:");
-        System.out.println("/follow <username>: follow a user");
-        System.out.println("/tweet <tweet>: post a tweet");
-        System.out.println("/getTweet <username>: view all tweets from an user user");
-        System.out.println("/timeline <username>: view timeline from an user");
-        System.out.println("/exit : quit application");
+            System.out.println("/follow <username>: follow a user");
+            System.out.println("/tweet <tweet>: post a tweet");
+            System.out.println("/getTweet <username>: view all tweets from an user user");
+            System.out.println("/timeline <username>: view timeline from an user");
+            System.out.println("/exit : quit application");
 
         boolean quit = false;
         do {

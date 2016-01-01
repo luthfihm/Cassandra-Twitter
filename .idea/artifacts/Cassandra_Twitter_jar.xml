@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Cassandra Twitter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Cassandra_Twitter_jar</output-path>
+    <root id="archive" name="Cassandra Twitter.jar">
+      <element id="module-output" name="Cassandra Twitter" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/cassandra-driver-core-2.1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/netty-buffer-4.0.27.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/netty-common-4.0.27.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/netty-transport-4.0.27.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/netty-codec-4.0.27.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/guava-14.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/metrics-core-3.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/slf4j-api-1.7.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/netty-handler-4.0.27.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/slf4j-api-1.7.6.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
